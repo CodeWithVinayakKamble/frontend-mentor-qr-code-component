@@ -1,0 +1,105 @@
+:root {
+  /* Body and qr Code Component color */
+  --body-bg-color: hsl(212, 45%, 89%);
+  --bg-component-color: hsl(0, 0%, 100%);
+
+  /* Font color for title and desc */
+  --title-color: hsl(218, 44%, 22%);
+  --component-text-color: hsl(216, 15%, 48%);
+  --frontend-mentor: hsl(228, 45%, 44%);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 15px;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-family: "Outfit", sans-serif;
+  background-color: var(--body-bg-color);
+}
+
+main {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  display: block;
+
+  max-width: 100%;
+  height: auto;
+}
+
+/* ###################### QR-code Compenent ##################### */
+
+.qr-code {
+  /* Box-model */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 90%;
+  max-width: 320px;
+  padding: 1rem;
+
+  /* Visuals */
+  background-color: var(--bg-component-color);
+  border-radius: 1.5rem;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.qr-code__img {
+  border-radius: 1rem;
+}
+
+.qr-code__title {
+  padding: 0 0.8rem;
+
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--title-color);
+  text-align: center;
+}
+
+.qr-code__description {
+  padding: 0 0.8rem 2rem;
+
+  font-size: 1rem;
+  color: var(--component-text-color);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ###################### Footer Attribution ##################### */
+.attribution {
+  font-size: 0.7rem;
+  text-align: center;
+
+  color: var(--component-text-color);
+  padding: 1rem;
+}
+.attribution a {
+  color: var(--frontend-mentor);
+  text-decoration: none;
+  font-weight: 700;
+
+  transition: opacity 0.3s ease;
+}
+
+.attribution a:hover {
+  opacity: 0.7;
+}
