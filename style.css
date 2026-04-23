@@ -10,6 +10,15 @@
 
   /* Box-shadow */
   --shadow-color: rgba(0, 0, 0, 0.1);
+
+  /* radius */
+  --radius-lg: 1.5rem; /* For the card's outer corners */
+  --radius-md: 1rem; /* For the image's inner corners */
+
+  /* padding */
+  --padding-inline: 0.8rem;
+  --padding-lg: 2rem;
+  --padding-md: 1rem;
 }
 
 * {
@@ -33,7 +42,7 @@ body {
   background-color: var(--body-bg-color);
 }
 
-main {
+.main {
   flex: 1;
 
   display: flex;
@@ -41,22 +50,22 @@ main {
   justify-content: center;
 }
 
-/* ###################### QR-code Compenent ##################### */
+/* ---- QR-code Component ---- */
 
 .qr-code {
   /* Box-model */
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: var(--padding-md);
   /* clamp(minimum, preferred, maximum) */
   /* "Be at least 280px, ideally 90% of screen, but never more than 320px" */
-  width: clamp(280px, 90%, 320px);
-  padding: 1rem;
+  width: clamp(18.667rem, 90%, 21.333rem);
+  padding: var(--padding-md) var(--padding-md) var(--padding-lg);
 
   /* Visuals */
   background-color: var(--bg-component-color);
-  border-radius: 1.5rem;
+  border-radius: var(--radius-lg);
   box-shadow: 0 10px 30px var(--shadow-color);
 }
 
@@ -65,34 +74,47 @@ main {
   max-width: 100%;
   height: auto;
 
-  border-radius: 1rem;
+  border-radius: var(--radius-md);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .qr-code__title {
-  padding: 0 0.8rem;
+  padding: 0 var(--padding-inline);
 
-  font-size: 1.375rem;
+  /* Responsive Font Approch */
+  font-size: clamp(1.125rem, 2.5vw, 1.375rem);
   font-weight: 700;
   color: var(--title-color);
   text-align: center;
 }
 
 .qr-code__description {
-  padding: 0 0.8rem 2rem;
+  padding: 0 var(--padding-inline);
 
-  font-size: 1rem;
+  font-size: clamp(0.875rem, 2vw, 1rem);
   color: var(--component-text-color);
   text-align: center;
   line-height: 1.5;
 }
 
-/* ###################### Footer Attribution ##################### */
+/* ---- Footer Attribution ----*/
 .attribution {
-  font-size: 0.7rem;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
   text-align: center;
 
   color: var(--component-text-color);
-  padding: 1rem;
+  padding: var(--padding-md);
 }
 .attribution a {
   color: var(--frontend-mentor);
@@ -108,8 +130,9 @@ main {
 
 /* Reduced Motion Accessibility for medical conditions (like epilepsy or vertigo  */
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
+  *,
+  .attribution a {
+    animation: none;
+    transition: none;
   }
 }
